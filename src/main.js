@@ -22,7 +22,8 @@ if (cmd == "init") {
     });
 } else if (cmd == "list") {
     var repo = pkgs.repo(config);
-    repo.packages.forEach(function(e) {
-        console.dir(e);
+    Object.keys(repo.packages).forEach(function(name) {
+        var pkg = repo.packages[name];
+        console.log(name);
     });
 }
