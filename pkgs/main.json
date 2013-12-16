@@ -1,7 +1,7 @@
 {
     "packages": {
         "test": {
-            "url": ""
+            "url": "https://raw.github.com/kaendfinger/chromeget/master/pkgs/main/test.json"
         }
     }
 }
