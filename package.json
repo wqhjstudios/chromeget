@@ -1,0 +1,24 @@
+{
+  "name": "chromeget",
+  "version": "0.0.1",
+  "description": "Chrome OS Package Manager",
+  "main": "src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kaendfinger/chromeget.git"
+  },
+  "keywords": [
+    "chrome",
+    "chromeos"
+  ],
+  "author": "Kenneth Endfinger",
+  "license": "DMF v0.1",
+  "bugs": {
+    "url": "https://github.com/kaendfinger/chromeget/issues"
+  },
+  "dependencies": {
+     "tar": "*",
+     "colors": "*",
+     "argh": "*"
+  }
+}
