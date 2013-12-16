@@ -14,9 +14,5 @@ ChromeGet will fulfill that need by enabling Chrome OS to have native apps with 
 
 Execute the following commands:
 ```bash
-cd /home/chronos/user/
-curl https://github.com/kaendfinger/chromeget/archive/master.tar.gz | tar zxvf
-cd chromeget-master
-npm install
-npm 
+npm install chromeget
 ```
