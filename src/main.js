@@ -13,7 +13,7 @@ if (!args.argv || args.help) {
 }
 
 if (cmd == "init") {
-    require("./init.js").exec({
+    require("./init.js")({
         args: args,
         config: config
     });
@@ -21,7 +21,7 @@ if (cmd == "init") {
     var repo = pkgs.repo(config);
     Object.keys(repo.packages).forEach(function(name) {
         var pkg = repo.packages[name];
-        console.log(pkg);
+        console.log(name);
     });
 } else if (cmd == "install") {
     if (args.argv.length == 1) {
