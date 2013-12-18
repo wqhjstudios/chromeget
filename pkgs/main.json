@@ -1,7 +1,8 @@
 {
+    "name": "main",
     "packages": {
         "test": {
-            "url": "https://raw.github.com/kaendfinger/chromeget/master/pkgs/main/test.json"
+            "tar": "https://bitbucket.org/kaendfinger/chromeget-dl/downloads/testpkg.tar.gz"
         }
     }
 }
