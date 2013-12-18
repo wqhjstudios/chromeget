@@ -1,17 +1,12 @@
-var colors = require("colors");
 var args = require("argh").argv;
 var cmdline = require("./cmdline.js");
 var pkgs = require("./pkgs.js");
 
 var cmd;
 
-var config = {
-    path: process.env.HOME + "/.chromeget",
-    repoMain: "https://raw.github.com/kaendfinger/chromeget/master/pkgs/main.json",
-    prefix: "/usr/local"
-};
+var config = require("./config.js").config();
 
-if (!args.argv) {
+if (!args.argv || args.help) {
     cmd = "help";
 } else {
     cmd = args.argv[0];
@@ -26,7 +21,7 @@ if (cmd == "init") {
     var repo = pkgs.repo(config);
     Object.keys(repo.packages).forEach(function(name) {
         var pkg = repo.packages[name];
-        console.log(name);
+        console.log(pkg);
     });
 } else if (cmd == "install") {
     if (args.argv.length == 1) {

@@ -1,7 +1,7 @@
 var request = require("request");
 var fs = require("fs");
 
-exports.exec = function(opts) {
+exports = function(opts) {
     var args = opts.args;
     var config = opts.config;
     
