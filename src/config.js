@@ -3,7 +3,7 @@ var fs = require("fs");
 var defaultConfig = {
     path: process.env.HOME + "/.chromeget",
     repoMain: "https://raw.github.com/kaendfinger/chromeget/master/pkgs/main.json",
-    prefix: "/usr/local"
+    prefix: "/usr/local/chromeget"
 };
 
 

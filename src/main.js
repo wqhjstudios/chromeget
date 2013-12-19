@@ -4,6 +4,18 @@ var pkgs = require("./pkgs.js");
 var repo = require("./repo.js");
 var cmd;
 
+if (process.getuid && process.setuid) {
+    if (process.getuid() !== 0) {
+        try {
+            process.setuid(0);
+            console.log("Gained Superuser Permissions".blue);
+        } catch (err) {
+            console.log("Failed to gain Superuser Permissions. Please run this with sudo!".red);
+            process.exit(1);
+        }
+    }
+}
+
 var config = require("./config.js").config();
 
 if (!args.argv || args.help) {
@@ -19,7 +31,7 @@ if (cmd == "init") {
     });
 } else if (cmd == "list") {
     var repo = pkgs.repo(config);
-    Object.keys(repo.packages).forEach(function(name) {
+    Object.keys(repo.packages).forEach(function (name) {
         var pkg = repo.packages[name];
         console.log(name);
     });
@@ -41,9 +53,9 @@ if (cmd == "init") {
     pkg.name = pkgName;
 
     pkgs.install({
-    	pkg: pkg,
-    	config: config,
-    	args: args
+        pkg: pkg,
+        config: config,
+        args: args
     });
 } else if (cmd == "help") {
     var hasCommand = args.argv !== undefined;
