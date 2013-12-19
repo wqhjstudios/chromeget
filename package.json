@@ -20,6 +20,7 @@
      "tar": "*",
      "argh": "*",
      "request": "*",
-     "colors": "*"
+     "colors": "*",
+     "fs-extended": "*"
   }
 }

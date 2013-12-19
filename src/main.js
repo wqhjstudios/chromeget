@@ -1,8 +1,5 @@
 var args = require("argh").argv;
 var cmdline = require("./cmdline.js");
-var pkgs = require("./pkgs.js");
-var repo = require("./repo.js");
-var cmd;
 
 if (process.getuid && process.setuid) {
     if (process.getuid() !== 0) {
@@ -16,7 +13,15 @@ if (process.getuid && process.setuid) {
     }
 }
 
-var config = require("./config.js").config();
+var configManager = require("./config.js");
+
+configManager.initialize();
+
+var config = configManager.config();
+
+var pkgs = require("./pkgs.js");
+var repo = require("./repo.js");
+var cmd;
 
 if (!args.argv || args.help) {
     cmd = "help";
@@ -24,15 +29,15 @@ if (!args.argv || args.help) {
     cmd = args.argv[0];
 }
 
-if (cmd == "init") {
-    repo.init({
+if (cmd == "update") {
+    repo.update({
         args: args,
         config: config
     });
 } else if (cmd == "list") {
-    var repo = pkgs.repo(config);
-    Object.keys(repo.packages).forEach(function (name) {
-        var pkg = repo.packages[name];
+    var pkgrepo = repo.packages(config);
+    Object.keys(pkgrepo.packages).forEach(function (name) {
+        var pkg = pkgrepo.packages[name];
         console.log(name);
     });
 } else if (cmd == "install") {
@@ -41,9 +46,9 @@ if (cmd == "init") {
         process.exit(0);
     }
     var pkgName = args.argv[1];
-    var repos = pkgs.repo(config);
+    var pkgrepo = repo.packages(config);
 
-    var pkg = repos.packages[pkgName];
+    var pkg = pkgrepo.packages[pkgName];
 
     if (pkg === undefined) {
         console.log("Package " + pkgName.red + " not found.");

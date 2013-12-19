@@ -6,6 +6,9 @@
             "scripts": {
             	"install": "bin/chromeget-testpkg"
            	}
+        },
+        "make": {
+        	"tar": "https://raw.github.com/kaendfinger/chromeget-dl/master/make.tar.gz"
         }
     }
 }

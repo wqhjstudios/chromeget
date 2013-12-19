@@ -7,18 +7,21 @@ var defaultConfig = {
 };
 
 
-fs.exists(defaultConfig.path, function(exists) {
-    if (!exists)
-        fs.mkdir(defaultConfig.path);
-});
+exports.initialize = function () {
+    fs.exists(defaultConfig.path, function (exists) {
+        if (!exists) {
+            fs.mkdir(defaultConfig.path);
+        }
+    });
+};
 
-exports.config = function(filename) {
+exports.config = function (filename) {
     var configPath = defaultConfig.path + "/" + (filename ? filename : "config.json");
-    
+
     if (!fs.existsSync(configPath)) {
-        fs.writeFile(configPath, JSON.stringify(defaultConfig, null, 4) + "\n");
+        fs.writeFile(configPath, JSON.stringify(defaultConfig, null, 4) + "\n", function () {});
         return defaultConfig;
     } else {
-        return JSON.parse(fs.readFileSync(filename ? filename : configPath));   
+        return JSON.parse(fs.readFileSync(filename ? filename : configPath));
     }
 };
