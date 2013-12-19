@@ -15,7 +15,7 @@ exports.install = function(opts) {
     var prefix = config.prefix;
     var tarUrl = pkg.tar;
     console.log("Installing".green + " " + pkg.name.red);
-    request(tarUrl).pipe(gzip).pipe(tar.Extract({ path: "/" }));
+    request(tarUrl).pipe(gzip).pipe(tar.Extract({ path: prefix }));
 };
 
 exports.remove = function(opts) {

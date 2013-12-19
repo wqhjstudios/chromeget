@@ -18,7 +18,6 @@
   },
   "dependencies": {
      "tar": "*",
-     "colors": "*",
      "argh": "*",
      "request": "*"
   }
