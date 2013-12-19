@@ -20,11 +20,15 @@ exports.install = function(opts) {
     if (pkg.scripts) {
         if (pkg.scripts.install) {
             var install_script = pkg.scripts.install;
-            var scriptProcess = spawn('sh', [ prefix + install_script ], {
+            console.log("--" + "Executing Install Script".blue + "--");
+            var scriptProcess = spawn('sh', [ prefix + "/" + install_script ], {
                 cwd: prefix,
                 env: {}
-            }).on('data', function(data) {
-                console.log(data);
+            });
+            scriptProcess.stdout.on('data', function(data) {
+                process.stdout.write(data);
+            }).on('exit', function (exitCode) {
+                console.log("Process Completed with status " + exitCode);
             });
         }
     }
