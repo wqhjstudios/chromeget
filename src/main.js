@@ -1,7 +1,7 @@
 var args = require("argh").argv;
 var cmdline = require("./cmdline.js");
 var pkgs = require("./pkgs.js");
-
+var repo = require("./repo.js");
 var cmd;
 
 var config = require("./config.js").config();
@@ -13,7 +13,7 @@ if (!args.argv || args.help) {
 }
 
 if (cmd == "init") {
-    require("./init.js")({
+    repo.init({
         args: args,
         config: config
     });
@@ -29,7 +29,15 @@ if (cmd == "init") {
         process.exit(0);
     }
     var pkgName = args.argv[1];
-    console.log("Will install " + pkgName);
+    var repos = pkgs.repo(config);
+
+    var pkg = repos.packages[pkgName];
+
+    if (pkg === undefined) {
+        console.log("Package " + pkgName.red + " not found.");
+        process.exit(1);
+    }
+    pkgs.install();
 } else if (cmd == "help") {
     var hasCommand = args.argv !== undefined;
     if (hasCommand) {

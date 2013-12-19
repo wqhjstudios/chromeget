@@ -17,7 +17,7 @@
     "url": "https://github.com/kaendfinger/chromeget/issues"
   },
   "dependencies": {
-     "tar.gz": "*",
+     "tar": "*",
      "colors": "*",
      "argh": "*",
      "request": "*"

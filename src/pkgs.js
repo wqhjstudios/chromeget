@@ -1,5 +1,6 @@
 var fs = require("fs");
-var targz = require('tar.gz');
+var gzip = require("zlib").createGunzip();
+var tar = require("tar");
 var request = require("request");
 
 exports.repo = function(config) {
@@ -13,15 +14,8 @@ exports.install = function(opts) {
     
     var prefix = config.prefix;
     var tarUrl = pkg.tar;
-    console.log("Installing " + pkg.name);
-    request(tarUrl).pipe(fs.createWriteStream(config.path + "/tmp.tar.gz"));
-    
-    var compress = new targz().extract(config.path + "/tmp.tar.gz", config.prefix, function(err) {
-        if(err) {
-            console.log(err);
-            process.exit(1);
-        }
-    });
+    console.log("Installing".green + " " + pkg.name.red);
+    request(tarUrl).pipe(gzip).pipe(tar.Extract({ path: "/" }));
 };
 
 exports.remove = function(opts) {
