@@ -37,7 +37,14 @@ if (cmd == "init") {
         console.log("Package " + pkgName.red + " not found.");
         process.exit(1);
     }
-    pkgs.install();
+
+    pkg.name = pkgName;
+
+    pkgs.install({
+    	pkg: pkg,
+    	config: config,
+    	args: args
+    });
 } else if (cmd == "help") {
     var hasCommand = args.argv !== undefined;
     if (hasCommand) {
