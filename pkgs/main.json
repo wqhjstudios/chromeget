@@ -2,7 +2,10 @@
     "name": "main",
     "packages": {
         "test": {
-            "tar": "https://raw.github.com/kaendfinger/chromeget-dl/master/test.tar.gz"
+            "tar": "https://raw.github.com/kaendfinger/chromeget-dl/master/test.tar.gz",
+            "scripts": {
+            	"install": "bin/chromeget-testpkg"
+           	}
         }
     }
 }
