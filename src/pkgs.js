@@ -16,12 +16,14 @@ exports.install = function(opts) {
     var prefix = config.prefix;
     var tarUrl = pkg.tar;
     console.log("Downloading".cyan + " '" + pkg.name.red + "'");
-    var downloaded = config.prefix + pkg.name + ".tar.gz";
+    var downloaded = config.path+ "/" + pkg.name + ".tar.gz";
     request(tarUrl).pipe(fs.createWriteStream(downloaded, function() {}));
 
     console.log("Installing".green + " '" + pkg.name.red + "'");
 
-    targunzip(downloaded, prefix);
+    var strip = pkg.strip ? pkg.strip : 0;
+
+    targunzip(downloaded, prefix, strip);
 
     if (pkg.scripts) {
         if (pkg.scripts.install) {
