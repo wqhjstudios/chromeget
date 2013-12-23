@@ -1,6 +1,6 @@
 {
   "name": "chromeget",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Chrome OS Package Manager",
   "main": "src/main.js",
   "preferGlobal": true,
