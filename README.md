@@ -10,9 +10,8 @@ ChromeGet will fulfill that need by enabling Chrome OS to have native apps with 
 
 ## Installation
 
-*WARNING* As of right now, I do not have an automated installer. The current expectation is that you already have node.js installed.
+To install ChromeGet, execute the following:
 
-Execute the following commands:
-```bash
-npm install chromeget
+```
+curl https://raw.github.com/kaendfinger/chromeget/master/bin/install.sh | bash
 ```
