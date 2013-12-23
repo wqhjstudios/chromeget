@@ -1,0 +1,2 @@
+#!/bin/bash
+node /usr/local/lib/node_modules/chromeget/src/main.js

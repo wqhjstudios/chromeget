@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Chrome OS Package Manager",
   "main": "src/main.js",
+  "preferGlobal": true,
+  "bin": {
+    "chromeget": "./bin/chromeget"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/kaendfinger/chromeget.git"
