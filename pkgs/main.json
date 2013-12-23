@@ -2,17 +2,17 @@
     "name": "main",
     "packages": {
         "test": {
-            "tar": "https://raw.github.com/kaendfinger/chromeget-dl/master/test.tar.gz",
+            "tar.gz": "https://raw.github.com/kaendfinger/chromeget-dl/master/test.tar.gz",
             "scripts": {
             	"install": "bin/chromeget-testpkg"
            	}
         },
         "make": {
-        	"tar": "https://raw.github.com/kaendfinger/chromeget-dl/master/make.tar.gz",
+        	"tar.gz": "https://raw.github.com/kaendfinger/chromeget-dl/master/make.tar.gz",
         	"strip": 2
         },
         "nodejs": {
-          "tar": "http://nodejs.org/dist/v0.10.24/node-v0.10.24-linux-x64.tar.gz",
+          "tar.gz": "http://nodejs.org/dist/v0.10.24/node-v0.10.24-linux-x64.tar.gz",
           "strip": 1
         }
     }
