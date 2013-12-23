@@ -5,5 +5,5 @@ exports.printUsage = function(cmd) {
     console.log("usage: chromeget " + command + " [arguments]");
     console.log();
     console.log("Possible Commands:");
-    console.log("  init, install, list");
+    console.log("  update, install, list");
 };
