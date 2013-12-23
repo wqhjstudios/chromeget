@@ -8,7 +8,8 @@
            	}
         },
         "make": {
-        	"tar": "https://raw.github.com/kaendfinger/chromeget-dl/master/make.tar.gz"
+        	"tar": "https://raw.github.com/kaendfinger/chromeget-dl/master/make.tar.gz",
+        	"strip": 2
         },
         "nodejs": {
           "tar": "http://nodejs.org/dist/v0.10.24/node-v0.10.24-linux-x64.tar.gz",

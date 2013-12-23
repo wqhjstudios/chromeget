@@ -6,7 +6,21 @@ var spawn = require("child_process").spawn;
 var request = require("request");
 
 function targunzip(file, target) {
-    fs.createReadStream(file).pipe(gzip).pipe(tar.Extract({ path: target }));
+    var process = spawn("/bin/tar", [ "zxvf", file, "-C" + target ], {
+      cwd: "/",
+      env: {}
+    });
+    process.on("error", function(err) {
+      console.log("Unable to extract tar!".red);
+    });
+    process.stderr.on('data', function(data) {
+      console.log(data.toString());
+    });
+    process.on("exit", function(code) {
+      if (code !== 0) {
+        console.log("Failed to Extract Tar!".red);
+      }
+    });
 }
 
 exports.install = function(opts) {
