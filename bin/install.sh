@@ -19,7 +19,7 @@ NODE_URL="http://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}-linux-${AR
 
 echo "Using Node version ${NODE_VERSION} on ${ARCH}"
 
-wget -O- ${NODE_URL} | sudo tar zxf - -C/usr/local --strip-components=1
+wget -O- ${NODE_URL} | tar zxf - -C/usr/local --strip-components=1
 
 echo "Installing ChromeGet"
 
