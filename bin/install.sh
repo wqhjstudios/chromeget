@@ -23,4 +23,4 @@ wget -O- ${NODE_URL} | tar zxf - -C/usr/local --strip-components=1
 
 echo "Installing ChromeGet"
 
-sudo npm install chromeget -g
+npm install chromeget -g
