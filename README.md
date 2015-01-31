@@ -1,3 +1,5 @@
+**NOTICE**: Currently being rewritten in Dart [here](https://github.com/DirectMyFile/chromeget).
+
 # ChromeGet
 
 Chrome OS Package Manager
